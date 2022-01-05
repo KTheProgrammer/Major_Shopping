@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    {% load static %}
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div class="row wow fadeIn">
+
+        <!--Grid column-->
+        <div class="col-lg-7" style="margin: auto; width: 500px; max-width: 90%; margin-top: 10%;">
+  
+          <!--Card-->
+          <div class="card">
+  
+            <!--Card image-->
+            <div class="view overlay">
+              <a href="/">
+              <img src="{% static 'img/Major_Shopping_logo.png' %}" style="width: 250px; margin-left: 30%;" class="card-img-top"
+                alt="Logo">
+              </a>
+            </div>
+            <!--Card image-->
+  
+            <!--Card content-->
+            <div class="card-body text-center">
+                <!--Category & Title-->
+                <div class="container" style="padding: 16px;">
+                    <h2>User Registration</h2>
+                    <form method="POST" action="">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            {{form.email}}
+                        </div>
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            {{form.username}}
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            {{form.password1}}
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm">Confirm Password</label>
+                            {{form.password2}}
+                        </div>
+                        <button type="submit" class="btn btn-success">Sign Up</button>
+                        <span style="margin-left: 45%;">Already A User <a href="/login"> Login </a></span>
+                    </form>
+                </div>
+                {% if messages %}
+                    {% for message in messages %}
+                        <p>{{message}}</p>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <!--Card content-->
+  
+          </div>
+          <!--Card-->
+  
+        </div>
+      <!--Card content-->
+  
+    </div>
+</body>
+</html>
